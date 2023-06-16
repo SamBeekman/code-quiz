@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(85, 175, 228);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    padding-left: 2%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    line-height: 2em;
+    background-color: bisque;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: aquamarine;
+    padding-left: 2%;
+}
