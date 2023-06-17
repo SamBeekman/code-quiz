@@ -17,7 +17,7 @@ beginButton.addEventListener("click", function () {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            window.alert("Out Of Time");
+            window.prompt("Out Of Time, enter you name to save your score", "name");
         }
     }, 1000);
 });
@@ -178,15 +178,24 @@ function startQuiz(id) {
     })
 }
 
+
+// Setting up Scoring
+let score = 0;
+const scoreText = document.querySelector(".score");
+scoreText.textContent = "score = " + score;
+
 // Testing if selected answer is correct and displaying result
 
 const submitButton = document.querySelector("#submit-button");
 submitButton.addEventListener("click", function () {
     if (selected == "true") {
         result.textContent = "Correct";
+        score += 10;
+        scoreText.textContent = "score = " + score;
     } else {
         result.textContent = "Incorrect -10 seconds";
-        //countdownTimer.textContent = secondsLeft - 10 + " seconds remaining";
+        score -= 5;
+        scoreText.textContent = "score = " + score;
     }
 
     // Looping through questions
@@ -194,8 +203,8 @@ submitButton.addEventListener("click", function () {
         id++;
         startQuiz(id);
     } else {
-        //gameover
-        window.alert("All Quesions Answered");
+        //clearInterval(timerInterval);
+        window.prompt("All Quesions Answered, enter you name to save your score", "name");
     }
 })
 
