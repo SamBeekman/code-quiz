@@ -8,17 +8,26 @@ const result = document.querySelector(".result");
 result.textContent = "";
 
 
+
 beginButton.addEventListener("click", function () {
     startQuiz(id);
     let secondsLeft = 60;
     let timerInterval = setInterval(function () {
         secondsLeft--;
+        if (selected == "false") {
+            secondsLeft -= 10;
+        }
         countdownTimer.textContent = secondsLeft + " seconds remaining";
 
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerInterval);
-            window.prompt("Out Of Time, enter you name to save your score", "name");
+            window.alert("Out Of Time, better luck next time.");
         }
+
+        if (id === 9) {
+            clearInterval(timerInterval);
+        }
+
     }, 1000);
 });
 
@@ -150,7 +159,7 @@ function startQuiz(id) {
     // Adding Event Listener, saving selection and setting button color
     A1.addEventListener("click", function () {
         selected = A1.value;
-        A1.style.backgroundColor = "aquamarine";
+        A1.style.backgroundColor = "#009688";
         A2.style.backgroundColor = "";
         A3.style.backgroundColor = "";
         A4.style.backgroundColor = "";
@@ -158,7 +167,7 @@ function startQuiz(id) {
     A2.addEventListener("click", function () {
         selected = A2.value;
         A1.style.backgroundColor = "";
-        A2.style.backgroundColor = "aquamarine";
+        A2.style.backgroundColor = "#009688";
         A3.style.backgroundColor = "";
         A4.style.backgroundColor = "";
     })
@@ -166,7 +175,7 @@ function startQuiz(id) {
         selected = A3.value;
         A1.style.backgroundColor = "";
         A2.style.backgroundColor = "";
-        A3.style.backgroundColor = "aquamarine";
+        A3.style.backgroundColor = "#009688";
         A4.style.backgroundColor = "";
     })
     A4.addEventListener("click", function () {
@@ -174,7 +183,7 @@ function startQuiz(id) {
         A1.style.backgroundColor = "";
         A2.style.backgroundColor = "";
         A3.style.backgroundColor = "";
-        A4.style.backgroundColor = "aquamarine";
+        A4.style.backgroundColor = "#009688";
     })
 }
 
@@ -198,23 +207,47 @@ submitButton.addEventListener("click", function () {
         scoreText.textContent = "score = " + score;
     }
 
-    // Looping through questions
+    // Looping through questions, resetting color/selections and saving name/score
     if (id < 9) {
         id++;
+        A1.style.backgroundColor = "";
+        A2.style.backgroundColor = "";
+        A3.style.backgroundColor = "";
+        A4.style.backgroundColor = "";
+        selected = "";
         startQuiz(id);
     } else {
-        //clearInterval(timerInterval);
-        window.prompt("All Quesions Answered, enter you name to save your score", "name");
+        let highscore = scoreText.textContent;
+        let userName = window.prompt("All Quesions Answered, enter you name to save your score of " + highscore + " points", "name");
+        localStorage.setItem("highscore", userName + " " + highscore);
+
     }
 })
 
+const footer = document.querySelector("footer");
+const olEl = footer.querySelector("ol");
+
+let saveScore = localStorage.getItem("highscore");
+let listEl = document.createElement("li");
+listEl.textContent = saveScore;
+olEl.appendChild(listEl);
+listEl.setAttribute("style", "text-align: center;", "font-size: largest;");
 
 
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
+localStorage.setItem("leaderboardHS", saveScore);
+let leaderboardHS = localStorage.getItem("leaderboardHS" + "highscore");
+let listEl2 = document.createElement("li");
+listEl2.textContent = leaderboardHS;
+olEl.appendChild(listEl2);
+listEl2.setAttribute("style", "text-align: center;", "font-size: largest;");
 
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
+const resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click", function () {
+    localStorage.removeItem("highscore");
+    localStorage.removeItem("leaderboardHS");
+})
+
+
 
 // WHEN the game is over
 // THEN I can save my initials and my score

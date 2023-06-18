@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(85, 175, 228);
+    background-image: url(../images/quiz.jpg);
+    margin: 0 10% 0 10%;
 }
 
 header {
@@ -7,15 +8,15 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: aquamarine;
-    padding-left: 2%;
+    background-color: #009688;
+    margin-top: 10%;
 }
 
 main {
     display: flex;
     justify-content: center;
     line-height: 2em;
-    background-color: bisque;
+    background-color: #f39a17;
 }
 
 div {
@@ -30,9 +31,9 @@ section {
 
 footer {
     display: flex;
-    justify-content: center;
-    background-color: aquamarine;
-    padding-left: 2%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #8898f1;
 }
 
 .result {
@@ -41,4 +42,12 @@ footer {
 
 .score {
     font-size: larger;
+}
+
+.time-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d7665d;
+
 }
