@@ -31,7 +31,8 @@ THEN I can save my initials and my score
 
 Link to deployed site: https://sambeekman.github.io/code-quiz/
 
-![sambeekman github io_code-quiz_](https://github.com/SamBeekman/code-quiz/assets/131665093/22438d4c-27e7-4fc9-a691-99173473a61a)
+
+![image](https://github.com/SamBeekman/code-quiz/assets/131665093/06ca6b8a-de1c-4cb8-a784-34ae3eeaa8b9)
 
 
 
