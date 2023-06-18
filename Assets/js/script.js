@@ -35,92 +35,92 @@ beginButton.addEventListener("click", function () {
 // make a list of questions and answers
 const Questions = [{
     id: 0,
-    q: "1. How many fingers are on a hand?",
-    a: [{ text: "3", isCorrect: false },
-    { text: "5", isCorrect: true },
-    { text: "7", isCorrect: false },
-    { text: "10", isCorrect: false }
+    q: "1. Javascript is an _______ language?",
+    a: [{ text: "Procedural", isCorrect: false },
+    { text: "Object-Oriented", isCorrect: true },
+    { text: "Object-Based", isCorrect: false },
+    { text: "None of the above", isCorrect: false }
     ]
 },
 {
     id: 1,
-    q: "2. What is bigger?",
-    a: [{ text: "mouse", isCorrect: false },
-    { text: "tree", isCorrect: false },
-    { text: "bacteria", isCorrect: false },
-    { text: "Seattle", isCorrect: true }
+    q: "2. Which of the following keywords is used to define a variable in Javascript?",
+    a: [{ text: "var", isCorrect: false },
+    { text: "let", isCorrect: false },
+    { text: "script", isCorrect: false },
+    { text: "Both A and B", isCorrect: true }
     ]
 },
 {
     id: 2,
-    q: "3. What is Homer Simpson's sons name?",
-    a: [{ text: "Bort", isCorrect: false },
-    { text: "Bert", isCorrect: false },
-    { text: "Bart", isCorrect: true },
-    { text: "Bird", isCorrect: false }
+    q: "3. Which of the following methods is used to access HTML elements using Javascript?",
+    a: [{ text: "querySelector()", isCorrect: false },
+    { text: "getElementsByClassName()", isCorrect: false },
+    { text: "getElementbyID()", isCorrect: false },
+    { text: "All of the above", isCorrect: true }
     ]
 },
 {
     id: 3,
-    q: "4. Which of these is NOT a gaming console?",
-    a: [{ text: "Gamecube", isCorrect: false },
-    { text: "Playstation", isCorrect: false },
-    { text: "XBox", isCorrect: false },
-    { text: "FunSphere", isCorrect: true }
+    q: "4. Upon encountering empty statements, what does the Javascript Interpreter do?",
+    a: [{ text: "Throws an error", isCorrect: false },
+    { text: "Ignores the statements", isCorrect: true },
+    { text: "Gives a warning", isCorrect: false },
+    { text: "None of the above", isCorrect: false }
     ]
 },
 {
     id: 4,
-    q: "5. What fell on Newton's head?",
-    a: [{ text: "Banana", isCorrect: false },
-    { text: "Apple", isCorrect: true },
-    { text: "Coconut", isCorrect: false },
-    { text: "Piano", isCorrect: false }
+    q: "5. Which of the following methods can be used to display data in some form using Javascript?",
+    a: [{ text: "document.write()", isCorrect: false },
+    { text: "console.log()", isCorrect: false },
+    { text: "window.alert", isCorrect: false },
+    { text: "All of the above", isCorrect: true }
     ]
 },
 {
     id: 5,
-    q: "6. Which is the best golf score?",
-    a: [{ text: "50", isCorrect: false },
-    { text: "0", isCorrect: false },
-    { text: "11", isCorrect: false },
-    { text: "-2", isCorrect: true }
+    q: "6. How can a datatype be declared to be a constant type?",
+    a: [{ text: "constant", isCorrect: false },
+    { text: "var", isCorrect: false },
+    { text: "let", isCorrect: false },
+    { text: "const", isCorrect: true }
     ]
 },
 {
     id: 6,
-    q: "7. Which drink does NOT contain caffein?",
-    a: [{ text: "Latte", isCorrect: false },
-    { text: "Babychino", isCorrect: true },
-    { text: "Long Black", isCorrect: false },
-    { text: "Piccolo", isCorrect: false }
+    q: "7. When an operator’s value is NULL, the typeof returned by the unary operator:",
+    a: [{ text: "Boolean", isCorrect: false },
+    { text: "Object", isCorrect: true },
+    { text: "Undefined", isCorrect: false },
+    { text: "Integer", isCorrect: false }
     ]
 },
 {
     id: 7,
-    q: "8. How many legs does a spider have?",
-    a: [{ text: "8", isCorrect: true },
-    { text: "16", isCorrect: false },
-    { text: "2", isCorrect: false },
-    { text: "0", isCorrect: false }
+    q: "8. What does the Javascript “debugger” statement do?",
+    a: [{ text: "It acts as a breakpoint in a program", isCorrect: true },
+    { text: "It will debug error in the current statement if any", isCorrect: false },
+    { text: "it will debug all errors in the program at runtime", isCorrect: false },
+    { text: "All of the above", isCorrect: false }
     ]
 },
 {
     id: 8,
-    q: "9. What is the meaning of life?",
-    a: [{ text: "39", isCorrect: false },
-    { text: "40", isCorrect: false },
-    { text: "41", isCorrect: false },
-    { text: "42", isCorrect: true }
+    q: "9. Which function is used to serialize an object into a JSON string in Javascript?",
+    a: [{ text: "serialize()", isCorrect: false },
+    { text: "convert()", isCorrect: false },
+    { text: "parse()", isCorrect: false },
+    { text: "stringify()", isCorrect: true }
     ]
 },
 {
     id: 9,
-    q: "10. What is the capital of Australia?",
-    a: [{ text: "Sydney", isCorrect: false },
-    { text: "Melbourne", isCorrect: false },
-    { text: "Brisbane", isCorrect: false },
-    { text: "Canberra", isCorrect: true }
+    q: "10. Which of the following is not a Javascript framework?",
+    a: [{ text: "Node", isCorrect: false },
+    { text: "Vue", isCorrect: false },
+    { text: "React", isCorrect: false },
+    { text: "Cassandra", isCorrect: true }
     ]
 }
 ];
