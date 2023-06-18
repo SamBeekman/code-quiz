@@ -245,9 +245,11 @@ const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", function () {
     localStorage.removeItem("highscore");
     localStorage.removeItem("leaderboardHS");
+    listEl.textContent = "";
+    listEl2.textContent = "";
 })
 
 
 
-// WHEN the game is over
-// THEN I can save my initials and my score
+// need to fix local storage saving scores
+// need to fix timer running down when quiz options are selected
