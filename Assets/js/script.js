@@ -1,27 +1,28 @@
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-
+// start the quiz
 const beginButton = document.querySelector(".begin-button");
 const countdownTimer = document.querySelector(".countdown-timer");
 const result = document.querySelector(".result");
 result.textContent = "";
 
 
-
+let secondsLeft = 60;
 beginButton.addEventListener("click", function () {
     startQuiz(id);
-    let secondsLeft = 60;
+    score = 0;
+    scoreText.textContent = "score = " + score;
+
     let timerInterval = setInterval(function () {
         secondsLeft--;
-        if (selected == "false") {
-            secondsLeft -= 10;
-        }
         countdownTimer.textContent = secondsLeft + " seconds remaining";
 
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
             window.alert("Out Of Time, better luck next time.");
+            document.querySelector(".begin-button").innerText = "Play Again";
+            id = 0;
+            secondsLeft = 60;
+            score = 0;
+            scoreText.textContent = "score = " + score;
         }
 
         if (id === 9) {
@@ -32,10 +33,9 @@ beginButton.addEventListener("click", function () {
 });
 
 // make a list of questions and answers
-
 const Questions = [{
     id: 0,
-    q: "how many fingers are on a hand?",
+    q: "1. How many fingers are on a hand?",
     a: [{ text: "3", isCorrect: false },
     { text: "5", isCorrect: true },
     { text: "7", isCorrect: false },
@@ -44,7 +44,7 @@ const Questions = [{
 },
 {
     id: 1,
-    q: "What is bigger?",
+    q: "2. What is bigger?",
     a: [{ text: "mouse", isCorrect: false },
     { text: "tree", isCorrect: false },
     { text: "bacteria", isCorrect: false },
@@ -53,7 +53,7 @@ const Questions = [{
 },
 {
     id: 2,
-    q: "What is Homer Simpson's sons name?",
+    q: "3. What is Homer Simpson's sons name?",
     a: [{ text: "Bort", isCorrect: false },
     { text: "Bert", isCorrect: false },
     { text: "Bart", isCorrect: true },
@@ -62,7 +62,7 @@ const Questions = [{
 },
 {
     id: 3,
-    q: "Which of these is NOT a gaming console?",
+    q: "4. Which of these is NOT a gaming console?",
     a: [{ text: "Gamecube", isCorrect: false },
     { text: "Playstation", isCorrect: false },
     { text: "XBox", isCorrect: false },
@@ -71,7 +71,7 @@ const Questions = [{
 },
 {
     id: 4,
-    q: "What fell on Newton's head?",
+    q: "5. What fell on Newton's head?",
     a: [{ text: "Banana", isCorrect: false },
     { text: "Apple", isCorrect: true },
     { text: "Coconut", isCorrect: false },
@@ -80,7 +80,7 @@ const Questions = [{
 },
 {
     id: 5,
-    q: "Which is the best golf score?",
+    q: "6. Which is the best golf score?",
     a: [{ text: "50", isCorrect: false },
     { text: "0", isCorrect: false },
     { text: "11", isCorrect: false },
@@ -89,7 +89,7 @@ const Questions = [{
 },
 {
     id: 6,
-    q: "Which drink does NOT contain caffein?",
+    q: "7. Which drink does NOT contain caffein?",
     a: [{ text: "Latte", isCorrect: false },
     { text: "Babychino", isCorrect: true },
     { text: "Long Black", isCorrect: false },
@@ -98,7 +98,7 @@ const Questions = [{
 },
 {
     id: 7,
-    q: "How many legs does a spider have?",
+    q: "8. How many legs does a spider have?",
     a: [{ text: "8", isCorrect: true },
     { text: "16", isCorrect: false },
     { text: "2", isCorrect: false },
@@ -107,7 +107,7 @@ const Questions = [{
 },
 {
     id: 8,
-    q: "What is the meaning of life?",
+    q: "9. What is the meaning of life?",
     a: [{ text: "39", isCorrect: false },
     { text: "40", isCorrect: false },
     { text: "41", isCorrect: false },
@@ -116,7 +116,7 @@ const Questions = [{
 },
 {
     id: 9,
-    q: "What is the capital of Australia?",
+    q: "10. What is the capital of Australia?",
     a: [{ text: "Sydney", isCorrect: false },
     { text: "Melbourne", isCorrect: false },
     { text: "Brisbane", isCorrect: false },
@@ -126,37 +126,36 @@ const Questions = [{
 ];
 
 // make quiz function
-
 let id = 0;
 let selected = "";
 
 function startQuiz(id) {
 
-    // Getting the question
+    // get the question
     const question = document.querySelector("#Q");
 
-    // Setting the question text
+    // set the question text
     question.textContent = Questions[id].q;
 
-    // Getting the options
+    // get the options
     const A1 = document.querySelector('#A1');
     const A2 = document.querySelector('#A2');
     const A3 = document.querySelector('#A3');
     const A4 = document.querySelector('#A4');
 
-    // Providing option text
+    // get the option text
     A1.textContent = Questions[id].a[0].text;
     A2.textContent = Questions[id].a[1].text;
     A3.textContent = Questions[id].a[2].text;
     A4.textContent = Questions[id].a[3].text;
 
-    // Providing the true or false value to the options
+    // get the true or false value to the options
     A1.value = Questions[id].a[0].isCorrect;
     A2.value = Questions[id].a[1].isCorrect;
     A3.value = Questions[id].a[2].isCorrect;
     A4.value = Questions[id].a[3].isCorrect;
 
-    // Adding Event Listener, saving selection and setting button color
+    // adding event listener, saving selection and setting button color
     A1.addEventListener("click", function () {
         selected = A1.value;
         A1.style.backgroundColor = "#009688";
@@ -187,14 +186,12 @@ function startQuiz(id) {
     })
 }
 
-
-// Setting up Scoring
+// setting up scoring
 let score = 0;
 const scoreText = document.querySelector(".score");
 scoreText.textContent = "score = " + score;
 
-// Testing if selected answer is correct and displaying result
-
+// checking if selected answer is correct, displaying result and updating score/time
 const submitButton = document.querySelector("#submit-button");
 submitButton.addEventListener("click", function () {
     if (selected == "true") {
@@ -205,9 +202,10 @@ submitButton.addEventListener("click", function () {
         result.textContent = "Incorrect -10 seconds";
         score -= 5;
         scoreText.textContent = "score = " + score;
+        secondsLeft -= 10;
     }
 
-    // Looping through questions, resetting color/selections and saving name/score
+    // looping through questions, resetting color/selections and saving name/score
     if (id < 9) {
         id++;
         A1.style.backgroundColor = "";
@@ -217,39 +215,52 @@ submitButton.addEventListener("click", function () {
         selected = "";
         startQuiz(id);
     } else {
-        let highscore = scoreText.textContent;
-        let userName = window.prompt("All Quesions Answered, enter you name to save your score of " + highscore + " points", "name");
-        localStorage.setItem("highscore", userName + " " + highscore);
+        document.querySelector(".begin-button").innerText = "Play Again";
+        id = 0;
+        secondsLeft = 60;
+        scoreText.textContent = "score = " + score;
+        let userScore = scoreText.textContent;
+        let userName = window.prompt("All Quesions Answered, enter you name to save your score of " + userScore + " points", "name");
+        let highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+        let thisScore = {
+            score: userScore,
+            username: userName
+        };
+
+        highscores.push(thisScore);
+        localStorage.setItem("highscores", JSON.stringify(highscores));
+        updateLeaderBoard();
 
     }
 })
 
-const footer = document.querySelector("footer");
-const olEl = footer.querySelector("ol");
+// update the leaderboard with locally stored attempts
+function updateLeaderBoard() {
+    const footer = document.querySelector("footer");
+    const olEl = footer.querySelector("ol");
+    olEl.innerHTML = "";
 
-let saveScore = localStorage.getItem("highscore");
-let listEl = document.createElement("li");
-listEl.textContent = saveScore;
-olEl.appendChild(listEl);
-listEl.setAttribute("style", "text-align: center;", "font-size: largest;");
+    let savedScores = JSON.parse(localStorage.getItem("highscores")) || [];
+    savedScores.sort(function (x, y) {
+        return y.score - x.score;
+    });
 
+    for (let i = 0; i < savedScores.length; i++) {
+        let listEl = document.createElement("li");
+        listEl.textContent = savedScores[i].username + " " + savedScores[i].score;
+        olEl.appendChild(listEl);
+        listEl.setAttribute("style", "text-align: center;", "font-size: largest;");
+    }
+}
 
-localStorage.setItem("leaderboardHS", saveScore);
-let leaderboardHS = localStorage.getItem("leaderboardHS" + "highscore");
-let listEl2 = document.createElement("li");
-listEl2.textContent = leaderboardHS;
-olEl.appendChild(listEl2);
-listEl2.setAttribute("style", "text-align: center;", "font-size: largest;");
+updateLeaderBoard();
 
+// resetting the leaderboard
 const resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", function () {
-    localStorage.removeItem("highscore");
-    localStorage.removeItem("leaderboardHS");
-    listEl.textContent = "";
-    listEl2.textContent = "";
+    localStorage.removeItem("highscores");
+    const footer = document.querySelector("footer");
+    const olEl = footer.querySelector("ol");
+    olEl.innerHTML = "";
 })
 
-
-
-// need to fix local storage saving scores
-// need to fix timer running down when quiz options are selected
