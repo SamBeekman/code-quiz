@@ -7,15 +7,12 @@ The User Story and Acceptance Criteria for the project are as follows:
 
 ## User Story
 
-```
 AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
-```
 
 ## Acceptance Criteria
 
-```
 GIVEN I am taking a code quiz
 WHEN I click the start button
 THEN a timer starts and I am presented with a question
@@ -31,12 +28,7 @@ THEN I can save my initials and my score
 
 Link to deployed site: https://sambeekman.github.io/code-quiz/
 
-
-![image](https://github.com/SamBeekman/code-quiz/assets/131665093/06ca6b8a-de1c-4cb8-a784-34ae3eeaa8b9)
-
-
-
-
+![image](https://github.com/SamBeekman/code-quiz/assets/131665093/f46049e3-efbe-499a-82d0-3bca3ef492da)
 
 
 
